@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/cucumber-js dist/",
-    "build": "./node_modules/.bin/babel src/ -d dist/"
+    "test": "cucumber-js ./dist/**/*.feature",
+    "build": "./node_modules/.bin/babel src/ -d dist/ && cp -R src/features/*.feature dist/test"
   },
   "keywords": [],
   "author": "",

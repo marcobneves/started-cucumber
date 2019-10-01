@@ -1,6 +1,6 @@
 const assert = require('assert')
 import {Before, Given, When, Then} from 'cucumber';
-import Calculator from '../../lib/calculator'
+import Calculator from '../pages/calculator'
 
 let calculator;
 
