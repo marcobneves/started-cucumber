@@ -1,6 +1,22 @@
 const assert = require('assert')
-import {Before, Given, When, Then} from 'cucumber';
+import { Before, Given, When, Then } from 'cucumber';
 import Calculator from '../pages/calculator'
+
+const puppeteer = require('puppeteer');
+// import puppeteer from 'puppeteer';
+(async () => {
+    const browser = await puppeteer.launch({
+        headless: false,
+        executablePath: '/usr/bin/google-chrome'
+    });
+    const page = await browser.newPage();
+    await page.goto('https://triadproject.herokuapp.com');
+    // await browser.close();
+})();
+
+
+Before(() => {
+});
 
 let calculator;
 

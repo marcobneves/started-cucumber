@@ -11,11 +11,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@babel/preset-env": "^7.6.2",
-    "cucumber": "^5.1.0"
+    "cucumber": "^5.1.0",
+    "puppeteer": "^1.20.0",
+    "puppeteer-core": "^1.20.0"
   },
   "devDependencies": {
     "@babel/cli": "7.5.0",
-    "@babel/core": "7.5.0"
-    }
+    "@babel/core": "7.5.0",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "@babel/runtime": "^7.6.2"
+  }
 }
