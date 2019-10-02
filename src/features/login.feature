@@ -3,7 +3,7 @@ Feature: Login
     I want can performs login in an application with e-mail and password valid
     For can view my authentication in application
 
-
+@teste
  Scenario: Login with success
     Given that view url "https://triadproject.herokuapp.com/login.php"
     When insert email "admin@gmail.com" and password "123456"
