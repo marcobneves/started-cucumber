@@ -8,6 +8,5 @@ export const Hooks = async () => {
         executablePath: '/usr/bin/google-chrome'
     });
     return page = await browser.newPage();
-
 }
 
