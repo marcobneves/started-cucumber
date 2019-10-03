@@ -2,20 +2,26 @@ const assert = require('assert')
 import { Before, After, Given, When, Then } from 'cucumber';
 import {Hooks} from './Hooks';
 
+import LoginPage from '../pages/LoginPage';
+
 let page;
+let loginPage;
 
 Before(async () => {
     page = await Hooks();
+    loginPage = new LoginPage(page); 
 });
 
 Given('that view url {string}', async (url)=> {
-    await page.goto(url);
+  await loginPage.openPage(url); 
+  await loginPage.verifyPage(titulo);
+
 });
 
-When('insert email {string} and password {string}', async (email, senha)=> {
-    await page.type('input[placeholder="Entre com seu E-mail"]', email);
-    await page.type('#login_pass', senha);
-    await page.click('#form-login button');
+When('insert email {string} and password {string}', async (email, password)=> {
+   await loginPage.fillDataLogin(email,password)
+   await loginPage.clickButtonEntrar();
+
 });
 
 Then('view my authentication with success', async ()=> {
