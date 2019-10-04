@@ -1,3 +1,4 @@
+//import {expect, assert} from 'chai'
 const assert = require('assert')
 export default class Base{
 
@@ -23,7 +24,13 @@ export default class Base{
     async verifyText(locator, text){     
         var elemento = await this.page.waitForSelector(locator, 5000);
         var texto = await this.page.evaluate((element) => element.textContent, elemento);
-        assert.equal(text, texto)
+        assert.equal(text, this.formatText(texto));
+       
+    }
+
+    formatText(text){
+        return text.replace(/\s{2,}/g, ' ').trim();
+        
     }
 
 }

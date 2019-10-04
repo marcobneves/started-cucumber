@@ -17,8 +17,8 @@ Feature: Login
 
     Examples:
         |email             |password    |msg                                              |
-        |  eee@dfs         |    123456  | E-mail:  Inválido.|
-        |  eee@gmail.com   |            | Senha:  não informada.|
-        |                  |            | E-mail:  não informado.|
-        |                  |   123456   | E-mail:  não informado.|
+        |  eee@dfs         |    123456  |E-mail: Inválido.|
+        |  eee@gmail.com   |            |Senha: não informada.|
+        |                  |            |E-mail: não informado.|
+        |                  |   123456   |E-mail: não informado.|
 

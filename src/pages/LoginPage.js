@@ -25,7 +25,7 @@ export default class LoginPages extends Base{
 
     }
     async verifyUserAuthenticated(){
-        await super.verifyText('.user-details div',' Olá Administrador ');
+        await super.verifyText('.user-details div','Olá Administrador');
 
     }
 

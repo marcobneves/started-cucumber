@@ -4,20 +4,14 @@ import {Hooks} from './Hooks';
 
 import LoginPage from '../pages/LoginPage';
 
-let page;
+let puppeteerObjects;
 let loginPage;
 
 Before(async () => {
-    page = await Hooks();
-    loginPage = new LoginPage(page); 
+    puppeteerObjects = await Hooks();
+    loginPage = new LoginPage(puppeteerObjects.page); 
 });
 
-After(async()=>{
-  const browser = await puppeteer.launch({
-    headless: false,
-    executablePath: '/usr/bin/google-chrome'
-});
-});
 
 Given('that view url {string}', async (url)=> {
   await loginPage.openPage(url); 
@@ -28,7 +22,7 @@ Given('that view url {string}', async (url)=> {
 When('insert email {string} and password {string}', async (email, password)=> {
    await loginPage.fillDataLogin(email,password)
    await loginPage.clickButtonEntrar();
-   await page.waitFor(2000);
+   await puppeteerObjects.page.waitFor(2000);
 
 });
 
@@ -42,6 +36,7 @@ Then ('view Error message {string}', async (message)=>{
    await loginPage.VerifyErrorMessage(message);
 });
 
-After(async () => {
-  await page.close();
+After(async()=>{
+  
+  puppeteerObjects.browser.close();
 });
