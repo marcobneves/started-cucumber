@@ -1,4 +1,4 @@
-
+const assert = require('assert')
 export default class Base{
 
     constructor(page){
@@ -17,7 +17,13 @@ export default class Base{
         await this.page.click(locator);
     }
     async titlePage(titulo) {
-        await expect(this.page.title()).resolves.toMatch(titulo)
+        await this.page.title(titulo)
+    }
+
+    async verifyText(locator, text){     
+        var elemento = await this.page.waitForSelector(locator, 5000);
+        var texto = await this.page.evaluate((element) => element.textContent, elemento);
+        assert.equal(text, texto)
     }
 
 }

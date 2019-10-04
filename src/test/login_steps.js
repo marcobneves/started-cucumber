@@ -1,4 +1,4 @@
-const assert = require('assert')
+
 import { Before, After, Given, When, Then } from 'cucumber';
 import {Hooks} from './Hooks';
 
@@ -12,28 +12,36 @@ Before(async () => {
     loginPage = new LoginPage(page); 
 });
 
+After(async()=>{
+  const browser = await puppeteer.launch({
+    headless: false,
+    executablePath: '/usr/bin/google-chrome'
+});
+});
+
 Given('that view url {string}', async (url)=> {
   await loginPage.openPage(url); 
-  await loginPage.verifyPage(titulo);
+  await loginPage.verifyPage();
 
 });
 
 When('insert email {string} and password {string}', async (email, password)=> {
    await loginPage.fillDataLogin(email,password)
    await loginPage.clickButtonEntrar();
+   await page.waitFor(2000);
 
 });
 
 Then('view my authentication with success', async ()=> {
- 
-  let locator = '.user-details div'
-  var elemento = await page.waitForSelector(locator, 5000);
-  var texto = await page.evaluate((element) => element.textContent, elemento);
-
-  assert.equal(texto, ' Olá Administrador ')
-
+  await loginPage.verifyUserAuthenticated();
+  
 });
 
-After(async()=>{
-   page.close();
-})
+Then ('view Error message {string}', async (message)=>{
+
+   await loginPage.VerifyErrorMessage(message);
+});
+
+After(async () => {
+  await page.close();
+});

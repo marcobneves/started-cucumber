@@ -10,15 +10,15 @@ Feature: Login
     Then view my authentication with success
 
 
-#  Scenario Outline: login invalid
-#     Given that view url "https://triadproject.herokuapp.com/login.php"
-#     When insert email "<email>" and password "<password>"
-#     Then view Error message "<message>"
+ Scenario Outline: login invalid
+    Given that view url "https://triadproject.herokuapp.com/login.php"
+    When insert email "<email>" and password "<password>"
+    Then view Error message "<msg>"
 
-#     Examples:
-#         |email             |password    |message                                            |
-#         |  eee@dfs         |    123456  | "E-mail:  Inválido."                              |
-#         |  eee@gmail.com   |            | "Senha:  não informada. "                         |
-#         |                  |            | "E-mail:  não informado.  Senha:  não informada. "|
-#         |                  |   123456   | "E-mail:  não informado. "                        |
+    Examples:
+        |email             |password    |msg                                              |
+        |  eee@dfs         |    123456  | E-mail:  Inválido.|
+        |  eee@gmail.com   |            | Senha:  não informada.|
+        |                  |            | E-mail:  não informado.|
+        |                  |   123456   | E-mail:  não informado.|
 

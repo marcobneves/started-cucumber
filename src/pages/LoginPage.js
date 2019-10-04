@@ -20,9 +20,17 @@ export default class LoginPages extends Base{
         await super.ClickButton('#form-login button');
     }
 
-    async verifyPage(titulo){
+    async verifyPage(){
         await super.titlePage('Projeto TRIAD')
 
+    }
+    async verifyUserAuthenticated(){
+        await super.verifyText('.user-details div',' Olá Administrador ');
+
+    }
+
+    async VerifyErrorMessage(message){
+        await super.verifyText('.alert-error div span', message)
     }
 
 }

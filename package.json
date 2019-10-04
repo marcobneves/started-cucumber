@@ -13,7 +13,11 @@
   "dependencies": {
     "cucumber": "^5.1.0",
     "puppeteer": "^1.20.0",
-    "puppeteer-core": "^1.20.0"
+    "puppeteer-core": "^1.20.0",
+    "expect-puppeteer": "^4.3.0",
+    "jest": "^24.9.0",
+    "jest-puppeteer": "^4.3.0"
+
   },
   "devDependencies": {
     "@babel/cli": "7.5.0",
