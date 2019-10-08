@@ -1,6 +1,7 @@
 
 import puppeteer from 'puppeteer';
-import LoginPages from '../pages/LoginPage';
+import {Before} from 'cucumber';
+
 
 export const Hooks = async () => {
     const browser = await puppeteer.launch({
@@ -8,11 +9,8 @@ export const Hooks = async () => {
         executablePath: '/usr/bin/google-chrome'
     });
     const page = await browser.newPage()
-    // let puppeteerObject = {
-    //     page: page,
-    //     browser:browser,
-    // }
 
     return {page:page,browser:browser};
 
 }
+

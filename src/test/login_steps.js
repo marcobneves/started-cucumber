@@ -1,7 +1,6 @@
 
 import { Before, After, Given, When, Then } from 'cucumber';
-import {Hooks} from './Hooks';
-
+import  {Hooks} from './Hooks';
 import LoginPage from '../pages/LoginPage';
 
 let puppeteerObjects;
@@ -37,6 +36,5 @@ Then ('view Error message {string}', async (message)=>{
 });
 
 After(async()=>{
-  
   puppeteerObjects.browser.close();
 });

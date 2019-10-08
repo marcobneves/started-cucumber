@@ -1,16 +1,17 @@
 
-@login
+
 Feature: Login
     As User
     I want can performs login in an application with e-mail and password valid
     For can view my authentication in application
 
+@login
  Scenario: Login with success
     Given that view url "https://triadproject.herokuapp.com/login.php"
     When insert email "admin@gmail.com" and password "123456"
     Then view my authentication with success
 
-
+@login1
  Scenario Outline: login invalid
     Given that view url "https://triadproject.herokuapp.com/login.php"
     When insert email "<email>" and password "<password>"
