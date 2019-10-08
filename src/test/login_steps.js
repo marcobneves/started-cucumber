@@ -36,5 +36,5 @@ Then ('view Error message {string}', async (message)=>{
 });
 
 After(async()=>{
-  puppeteerObjects.browser.close();
+  await puppeteerObjects.browser.close();
 });

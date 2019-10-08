@@ -1,16 +1,20 @@
 
 import puppeteer from 'puppeteer';
-import {Before} from 'cucumber';
+
 
 
 export const Hooks = async () => {
     const browser = await puppeteer.launch({
         headless: false,
-        executablePath: '/usr/bin/google-chrome'
+        args: ['--start-maximized', '--window-size=1920,1080']
     });
     const page = await browser.newPage()
+    await page.setViewport({width:1920, height:1080});
 
-    return {page:page,browser:browser};
+    return {
+        page:page,
+        browser:browser
+    };
 
 }
 

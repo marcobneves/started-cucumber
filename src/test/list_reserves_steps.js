@@ -1,15 +1,17 @@
 
-import {Given, When, Then } from 'cucumber';
-import puppeteer from 'puppeteer';
-
+import {Before,After,Given, When, Then } from 'cucumber';
+import  {Hooks} from './Hooks';
+import LoginPage from '../pages/LoginPage';
 import ListReservesPage from '../pages/ListReservesPage';
 
 let list;
+let puppeteerObjects;
+
 
 Before(async () => {
     puppeteerObjects = await Hooks();
     list = new ListReservesPage(puppeteerObjects.page)
- 
+  
 });
 
 
@@ -22,6 +24,8 @@ Then('show office room {string} in the list', function (string) {
 
 });
 
+
+
 After(async()=>{
-    list.browser.close();
+    await puppeteerObjects.browser.close();
 });
