@@ -33,14 +33,7 @@ export default class LoginPages extends Base{
         await super.verifyText('.alert-error div span', message)
     }
 
-    async LoginSuccess(){
-        await super.OpenUrl('https://triadproject.herokuapp.com/login.php')
-        await super.TypeInput('input[placeholder="Entre com seu E-mail"]', 'admin@gmail.com');
-        await super.TypeInput('#login_pass', '123456');
-        await super.ClickButton('#form-login button');
-       
-    }
-
+    
     
 
 }
