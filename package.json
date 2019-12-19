@@ -5,21 +5,27 @@
   "main": "index.js",
   "scripts": {
     "test": "cucumber-js ./dist/**/*.feature",
-    "build": "./node_modules/.bin/babel src/ -d dist/ && cp -R src/features/*.feature dist/test"
+    "build": "./node_modules/.bin/babel src/ -d dist/ && cp -R src/features/*.feature dist/test",
+    "remove": "remove ./dist"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chai": "^4.2.0",
     "cucumber": "^5.1.0",
+    "cucumber-puppeteer": "^1.0.15",
+    "expect-puppeteer": "^4.3.0",
+    "jest": "^24.9.0",
+    "jest-cucumber": "^2.0.11",
     "puppeteer": "^1.20.0",
     "puppeteer-core": "^1.20.0"
   },
   "devDependencies": {
     "@babel/cli": "7.5.0",
     "@babel/core": "7.5.0",
-    "@babel/plugin-transform-runtime": "^7.6.2",
-    "@babel/preset-env": "^7.6.2",
-    "@babel/runtime": "^7.6.2"
+    "@babel/plugin-transform-runtime": "7.6.2",
+    "@babel/preset-env": "7.6.2",
+    "@babel/runtime": "7.6.2"
   }
 }
